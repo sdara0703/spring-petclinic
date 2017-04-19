@@ -393,7 +393,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.3</version>
 				<configuration>
-					<warName>Welcome-DevOps</warName>
+					<warName>spring-petclic</warName>
 				</configuration>
 			</plugin>
 			<plugin>
