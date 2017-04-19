@@ -11,10 +11,10 @@ node {
     stage ('Deploy') {
         sh '''
             cd target
-            /usr/local/Cellar/tomcat/8.5.14/bin/catalina stop
-            rm -rf /usr/local/Cellar/tomcat/8.5.14/libexec/webapps/spring*
-            cp -rf spring*.war 
-            /usr/local/Cellar/tomcat/8.5.14/bin/catalina start
+            sudo /usr/local/Cellar/tomcat/8.5.14/bin/catalina stop
+            sudo rm -rf /usr/local/Cellar/tomcat/8.5.14/libexec/webapps/spring*
+            sudo cp -rf spring*.war /usr/local/Cellar/tomcat/8.5.14/libexec/webapps/
+            sudo /usr/local/Cellar/tomcat/8.5.14/bin/catalina start
            ''' 
     }
 }
