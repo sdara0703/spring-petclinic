@@ -8,7 +8,7 @@ node {
         def mvnHome = tool 'Maven350'
         sh "${mvnHome}/bin/mvn sonar:sonar"
     }
-    stage ('Deploy' {
+    stage ('Deploy') {
         sh '''
             cd target
             /usr/local/Cellar/tomcat/8.5.14/bin/catalina stop
@@ -16,6 +16,5 @@ node {
             cp -rf spring*.war 
             /usr/local/Cellar/tomcat/8.5.14/bin/catalina start
            ''' 
-        
     }
 }
