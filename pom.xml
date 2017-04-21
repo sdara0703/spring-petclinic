@@ -8,6 +8,12 @@
 	<name>spring-petclinic</name>
 	<packaging>war</packaging>
 
+	<distributionManagement>
+		<snapshotRepository>
+		<id>nexus-snapshots</id>
+		<url>http://localhost:8081/nexus/content/repositories/spring-petclinic-snapshot</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<properties>
 
 		<!-- Generic properties -->
