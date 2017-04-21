@@ -1,4 +1,6 @@
 node {
+    
+    properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5']]]);
     stage ('Checkout from GIT') {    
       git url: 'https://github.com/sdara0703/spring-petclinic.git'
       def mvnHome = tool 'Maven350'
