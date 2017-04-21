@@ -12,7 +12,7 @@ node {
     }
     stage ('Nexus Upload') {
         def mvnHome = tool 'Maven350'
-        sh "${mvnHome}/bin/mvn deploy"
+        sh "${mvnHome}/bin/mvn deploy -DskipTests=true"
     }
     stage ('Deploy to Tomcat') {
         sh '''
