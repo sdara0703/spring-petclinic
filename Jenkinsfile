@@ -1,17 +1,20 @@
 node {
     
     properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5']]]);
+    
+    def mvnHome = tool 'Maven350'
+    
     stage ('Checkout from GIT') {    
       git url: 'https://github.com/sdara0703/spring-petclinic.git'
-      def mvnHome = tool 'Maven350'
+      //def mvnHome = tool 'Maven350'
       sh "${mvnHome}/bin/mvn clean install -DskipTests=true"
     }
     stage ('Sonar Scan') {
-        def mvnHome = tool 'Maven350'
+        //def mvnHome = tool 'Maven350'
         sh "${mvnHome}/bin/mvn sonar:sonar"
     }
     stage ('Nexus Upload') {
-        def mvnHome = tool 'Maven350'
+        //def mvnHome = tool 'Maven350'
         sh "${mvnHome}/bin/mvn deploy -DskipTests=true"
     }
     stage ('Deploy to Tomcat') {
