@@ -1,14 +1,18 @@
 node {
-    stage ('Checkout') {    
+    stage ('Checkout from GIT') {    
       git url: 'https://github.com/sdara0703/spring-petclinic.git'
       def mvnHome = tool 'Maven350'
       sh "${mvnHome}/bin/mvn clean install -DskipTests=true"
     }
-    stage ('Sonar') {
+    stage ('Sonar Scan') {
         def mvnHome = tool 'Maven350'
         sh "${mvnHome}/bin/mvn sonar:sonar"
     }
-    stage ('Deploy') {
+    stage ('Nexus Upload') {
+        def mvnHome = tool 'Maven350'
+        sh "${mvnHome}/bin/mvn deploy"
+    }
+    stage ('Deploy to Tomcat') {
         sh '''
             cd target
             sudo /usr/local/Cellar/tomcat/8.5.14/bin/catalina stop
