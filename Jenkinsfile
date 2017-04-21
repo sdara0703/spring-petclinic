@@ -7,8 +7,14 @@ node {
     stage ('Checkout from GIT') {    
       git url: 'https://github.com/sdara0703/spring-petclinic.git'
       //def mvnHome = tool 'Maven350'
-      sh "${mvnHome}/bin/mvn clean install -DskipTests=true"
+      //sh "${mvnHome}/bin/mvn clean install -DskipTests=true"
     }
+    
+    stage ('Maven Build') {    
+      git url: 'https://github.com/sdara0703/spring-petclinic.git'
+      //def mvnHome = tool 'Maven350'
+      sh "${mvnHome}/bin/mvn clean install -DskipTests=true"
+    } 
     stage ('Sonar Scan') {
         //def mvnHome = tool 'Maven350'
         sh "${mvnHome}/bin/mvn sonar:sonar"
