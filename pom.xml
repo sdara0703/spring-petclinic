@@ -7,14 +7,10 @@
 
 	<name>spring-petclinic</name>
 	<packaging>war</packaging>
-	<configuration>
-		<serverId>nexus</serverId>
-		<nexusUrl>http://localhost:8081/nexus/</nexusUrl>
-	</configuration>
 	
 	<distributionManagement>
 		<snapshotRepository>
-		<id>nexus-snapshots</id>
+		<id>nexus</id>
 		<url>http://localhost:8081/nexus/content/repositories/spring-petclinic-snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
